@@ -7,8 +7,9 @@ const InputForm = (props: InputFormType) => {
     e.preventDefault()
     const { task } = e.target.elements
     props.onFormSubmit(task.value)
+    task.value = ''
   }
-  
+
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name="task" />

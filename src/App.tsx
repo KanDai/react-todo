@@ -25,7 +25,9 @@ function App() {
 
   return (
     <div className="App">
-      <InputForm onFormSubmit={crateTask} />
+      <InputForm
+        onFormSubmit={crateTask}
+      />
       <TaskList
         list={tasks}
         clickDelete={deleteTask}
