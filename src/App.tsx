@@ -1,27 +1,26 @@
-import React from 'react'
-import Task from './component/Task'
+import { useState } from 'react'
+import TaskList from './component/TaskList'
+import InputForm from './component/InputForm';
 
 function App() {
-  const tasks = [
-    {
-      id: 1,
-      label: 'テスト'
-    },
-    {
-      id: 2,
-      label: 'テスト2'
+  const [id, setId] = useState<number>(0)
+  const [tasks, setTasks] = useState<any>([])
+
+  const crateTask = (label: string) => {
+    setId(id + 1)
+
+    const task = {
+      id: id,
+      label: label
     }
-  ]
+
+    setTasks([...tasks, task])
+  }
 
   return (
     <div className="App">
-      {tasks.map((task) => {
-          return (
-              <div key={task.id} className="column is-3">
-                  <Task label={task.label} />
-              </div>
-          )
-      })}
+      <InputForm onFormSubmit={crateTask} />
+      <TaskList list={tasks} />
     </div>
   );
 }
