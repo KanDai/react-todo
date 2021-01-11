@@ -17,10 +17,19 @@ function App() {
     setTasks([...tasks, task])
   }
 
+  const deleteTask = (index: number) => {
+    tasks.splice(index, 1)
+
+    setTasks([...tasks])
+  }
+
   return (
     <div className="App">
       <InputForm onFormSubmit={crateTask} />
-      <TaskList list={tasks} />
+      <TaskList
+        list={tasks}
+        clickDelete={deleteTask}
+      />
     </div>
   );
 }
