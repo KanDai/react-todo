@@ -17,6 +17,12 @@ function App() {
     setTasks([...tasks, task])
   }
 
+  const editTask = (index: number, text: string) => {
+    tasks[index].label = text
+
+    setTasks([...tasks])
+  }
+
   const deleteTask = (index: number) => {
     tasks.splice(index, 1)
 
@@ -30,6 +36,7 @@ function App() {
       />
       <TaskList
         list={tasks}
+        onSubmitEdit={editTask}
         clickDelete={deleteTask}
       />
     </div>

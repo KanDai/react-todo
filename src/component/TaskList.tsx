@@ -6,6 +6,10 @@ interface TaskType {
 }
 
 const TaskList = (props: any) => {
+  const onSubmitEdit = (index: number, text: string) => {
+    props.onSubmitEdit(index, text)
+  }
+
   const clickDelete = (index: number) => {
     props.clickDelete(index)
   }
@@ -24,6 +28,7 @@ const TaskList = (props: any) => {
                   <Task
                     index={index}
                     label={task.label}
+                    onSubmitEdit={onSubmitEdit}
                     clickDelete={clickDelete}
                   />
               </div>
