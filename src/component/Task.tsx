@@ -13,6 +13,9 @@ const Task = (props: TaskType) => {
   const handleSubmitEdit = (e: any) => {
     e.preventDefault()
     const { task } = e.target.elements
+
+    if(!task.value) return
+
     props.onSubmitEdit(props.index, task.value)
     changeEditable(false)
   }

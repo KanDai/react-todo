@@ -6,6 +6,9 @@ const InputForm = (props: InputFormType) => {
   const handleSubmit = (e: any) => {
     e.preventDefault()
     const { task } = e.target.elements
+
+    if(!task.value) return
+
     props.onFormSubmit(task.value)
     task.value = ''
   }
