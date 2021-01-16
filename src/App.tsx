@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import TaskList from './component/TaskList'
 import InputForm from './component/InputForm';
+import './App.css';
 
 function App() {
   const [id, setId] = useState<number>(0)
