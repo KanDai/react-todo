@@ -1,0 +1,33 @@
+.wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.btns {
+  margin-left: auto;
+}
+
+.btn {
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+}
+
+.formBtn {
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.formInput {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+}

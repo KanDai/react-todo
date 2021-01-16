@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styles from "./task.module.scss";
 
 interface TaskType {
   index: number
@@ -25,18 +26,45 @@ const Task = (props: TaskType) => {
 
   if (!isEditable) {
     return (
-      <div className="Task">
+      <div className={styles.wrap}>
         <p>{props.label}</p>
-        <button type="button" onClick={() => changeEditable(true)}>編集</button>
-        <button type="button" onClick={handleClickDelete}>削除</button>
+        <div className={styles.btns}>
+          <button
+            type="button"
+            className={styles.btn}
+            onClick={() => changeEditable(true)}
+          >
+            編集
+          </button>
+          <button
+            type="button"
+            className={styles.btn}
+            onClick={handleClickDelete}
+          >
+            削除
+          </button>
+        </div>
       </div>
     )
   } else {
     return (
-      <div className="Task">
-        <form onSubmit={handleSubmitEdit}>
-          <input type="text" name="task" defaultValue={props.label} />
-          <button type="submit">決定</button>
+      <div className={styles.wrap}>
+        <form
+          className={styles.form}
+          onSubmit={handleSubmitEdit}
+        >
+          <input
+            type="text"
+            name="task"
+            className={styles.formInput}
+            defaultValue={props.label}
+          />
+          <button
+            className={styles.formBtn}
+            type="submit"
+          >
+            決定
+          </button>
         </form>
       </div>
     )
