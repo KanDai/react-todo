@@ -3,7 +3,7 @@ interface InputFormType {
 }
 
 const InputForm = (props: InputFormType) => {
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: any): void => {
     e.preventDefault()
     const { task } = e.target.elements
 
@@ -18,7 +18,7 @@ const InputForm = (props: InputFormType) => {
       <input type="text" name="task" />
       <button type="submit">作成</button>
     </form>
-  );
+  )
 }
 
 export default InputForm

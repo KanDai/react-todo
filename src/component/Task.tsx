@@ -1,26 +1,21 @@
 import { useState } from 'react'
-import styles from "./task.module.scss";
-
-interface TaskType {
-  index: number
-  label: string
-  onSubmitEdit: Function
-  clickDelete: Function
-}
+import styles from "./task.module.scss"
+import { TaskType } from "./Task.d"
 
 const Task = (props: TaskType) => {
   const [isEditable, changeEditable] = useState<boolean>(false)
 
-  const handleSubmitEdit = (e: any) => {
+  const handleSubmitEdit = (e: any): void => {
     e.preventDefault()
     const { task } = e.target.elements
 
-    if(!task.value) return
+    if(!task.value || !props.onSubmitEdit) return
 
     props.onSubmitEdit(props.index, task.value)
     changeEditable(false)
   }
-  const handleClickDelete = (e: any) => {
+  const handleClickDelete = (): void => {
+    if(!props.clickDelete) return
     props.clickDelete(props.index)
   }
 

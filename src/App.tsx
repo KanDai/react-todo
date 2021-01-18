@@ -1,16 +1,22 @@
 import { useState } from 'react'
 import TaskList from './component/TaskList'
-import InputForm from './component/InputForm';
+import InputForm from './component/InputForm'
+
 import './App.css';
+
+interface TaskType {
+  id: number
+  label: string
+}
 
 function App() {
   const [id, setId] = useState<number>(0)
-  const [tasks, setTasks] = useState<any>([])
+  const [tasks, setTasks] = useState<TaskType[]>([])
 
   const crateTask = (label: string) => {
     setId(id + 1)
 
-    const task = {
+    const task: TaskType = {
       id: id,
       label: label
     }

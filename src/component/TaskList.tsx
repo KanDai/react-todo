@@ -1,16 +1,13 @@
 import Task from './Task'
+import { TaskType } from "./Task.d"
+import { TaskListType } from "./TaskList.d"
 
-interface TaskType {
-  id: number
-  label: string
-}
-
-const TaskList = (props: any) => {
-  const onSubmitEdit = (index: number, text: string) => {
+const TaskList = (props: TaskListType) => {
+  const onSubmitEdit = (index: number, text: string): void => {
     props.onSubmitEdit(index, text)
   }
 
-  const clickDelete = (index: number) => {
+  const clickDelete = (index: number): void => {
     props.clickDelete(index)
   }
 
@@ -26,6 +23,7 @@ const TaskList = (props: any) => {
           return (
               <div key={task.id} className="column is-3">
                   <Task
+                    id={task.id}
                     index={index}
                     label={task.label}
                     onSubmitEdit={onSubmitEdit}
@@ -35,7 +33,7 @@ const TaskList = (props: any) => {
           )
       })}
     </div>
-  );
+  )
 }
 
 export default TaskList
