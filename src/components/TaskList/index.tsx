@@ -2,6 +2,10 @@ import Task from 'components/Task'
 import { TaskType, TaskListType } from 'types'
 
 const TaskList = (props: TaskListType) => {
+    const toggleChecked = (index: number, checked: boolean): void => {
+        props.toggleChecked(index, checked)
+    }
+
     const onSubmitEdit = (index: number, text: string): void => {
         props.onSubmitEdit(index, text)
     }
@@ -23,6 +27,8 @@ const TaskList = (props: TaskListType) => {
                             id={task.id}
                             index={index}
                             label={task.label}
+                            isChecked={task.isChecked}
+                            toggleChecked={toggleChecked}
                             onSubmitEdit={onSubmitEdit}
                             clickDelete={clickDelete}
                         />

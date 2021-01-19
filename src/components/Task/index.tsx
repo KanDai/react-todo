@@ -5,6 +5,11 @@ import styles from './styles.module.scss'
 const Task = (props: TaskType) => {
     const [isEditable, changeEditable] = useState<boolean>(false)
 
+    const changeStatus = (e: any): void => {
+        if (!props.toggleChecked) return
+        props.toggleChecked(props.index, e.target.checked)
+    }
+
     const handleSubmitEdit = (e: any): void => {
         e.preventDefault()
         const { task } = e.target.elements
@@ -14,6 +19,7 @@ const Task = (props: TaskType) => {
         props.onSubmitEdit(props.index, task.value)
         changeEditable(false)
     }
+
     const handleClickDelete = (): void => {
         if (!props.clickDelete) return
         props.clickDelete(props.index)
@@ -22,7 +28,15 @@ const Task = (props: TaskType) => {
     if (!isEditable) {
         return (
             <div className={styles.wrap}>
-                <p>{props.label}</p>
+                <div>
+                    <input
+                        className={styles.checkbox}
+                        type="checkbox"
+                        checked={props.isChecked}
+                        onChange={changeStatus}
+                    />
+                    <span>{props.label}</span>
+                </div>
                 <div className={styles.btns}>
                     <button
                         type="button"
