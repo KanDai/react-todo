@@ -5,3 +5,9 @@ export interface TaskType {
   onSubmitEdit?: Function
   clickDelete?: Function
 }
+
+export interface TaskListType {
+  list: Array<TaskType>
+  onSubmitEdit: Function
+  clickDelete: Function
+}

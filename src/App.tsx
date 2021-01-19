@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import TaskList from './component/TaskList'
-import InputForm from './component/InputForm'
-
-import './App.css';
+import TaskList from 'components/TaskList'
+import InputForm from 'components/InputForm'
 
 interface TaskType {
   id: number

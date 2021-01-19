@@ -1,6 +1,5 @@
-import Task from './Task'
-import { TaskType } from "./Task.d"
-import { TaskListType } from "./TaskList.d"
+import Task from 'components/Task'
+import { TaskType, TaskListType } from "types"
 
 const TaskList = (props: TaskListType) => {
   const onSubmitEdit = (index: number, text: string): void => {

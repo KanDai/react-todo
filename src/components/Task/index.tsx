@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import styles from "./task.module.scss"
-import { TaskType } from "./Task.d"
+import { TaskType } from "types"
+import styles from "./styles.module.scss"
 
 const Task = (props: TaskType) => {
   const [isEditable, changeEditable] = useState<boolean>(false)
