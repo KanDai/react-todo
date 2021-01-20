@@ -28,7 +28,7 @@ const Task = (props: TaskType) => {
     if (!isEditable) {
         return (
             <div className={styles.wrap}>
-                <div>
+                <div className={styles.inner}>
                     <input
                         className={styles.checkbox}
                         type="checkbox"
@@ -57,7 +57,7 @@ const Task = (props: TaskType) => {
         )
     } else {
         return (
-            <div className={styles.wrap}>
+            <div className={styles.edit}>
                 <form className={styles.form} onSubmit={handleSubmitEdit}>
                     <input
                         type="text"

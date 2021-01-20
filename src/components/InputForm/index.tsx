@@ -1,3 +1,4 @@
+import styles from './styles.module.scss'
 interface InputFormType {
     onFormSubmit: Function
 }
@@ -14,10 +15,14 @@ const InputForm = (props: InputFormType) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="task" />
-            <button type="submit">作成</button>
-        </form>
+        <div className={styles.wrap}>
+            <form className={styles.form} onSubmit={handleSubmit}>
+                <input className={styles.input} type="text" name="task" />
+                <button className={styles.button} type="submit">
+                    作成
+                </button>
+            </form>
+        </div>
     )
 }
 

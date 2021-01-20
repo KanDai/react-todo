@@ -2,8 +2,19 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 8px;
-    border-bottom: 1px solid #eee;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+.inner {
+    padding: 10px 5px;
+}
+
+.edit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1px 5px;
     font-size: 16px;
 }
 
@@ -27,6 +38,8 @@
 .form {
     display: flex;
     width: 100%;
+    background-color: #fff;
+    padding: 5px;
 }
 
 .formBtn {
@@ -38,4 +51,5 @@
     border: none;
     width: 100%;
     font-size: 16px;
+    padding: 10px;
 }

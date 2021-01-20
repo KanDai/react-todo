@@ -1,5 +1,6 @@
 import Task from 'components/Task'
 import { TaskType, TaskListType } from 'types'
+import styles from './styles.module.scss'
 
 const TaskList = (props: TaskListType) => {
     const toggleChecked = (index: number, checked: boolean): void => {
@@ -15,11 +16,15 @@ const TaskList = (props: TaskListType) => {
     }
 
     if (props.list.length === 0) {
-        return <p>タスクはありません</p>
+        return (
+            <div className={styles.nodata}>
+                <p>タスクはありません</p>
+            </div>
+        )
     }
 
     return (
-        <div className="TaskList">
+        <div className={styles.list}>
             {props.list.map((task: TaskType, index: number) => {
                 return (
                     <div key={task.id} className="column is-3">

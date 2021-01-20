@@ -107,6 +107,7 @@ section {
 }
 body {
     line-height: 1;
+    background-color: #efefef;
 }
 ol,
 ul {
@@ -130,4 +131,17 @@ table {
 
 * {
     box-sizing: border-box;
+}
+
+input[type='text'],
+button,
+textarea,
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
 }
