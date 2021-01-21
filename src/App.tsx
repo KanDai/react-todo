@@ -36,6 +36,10 @@ function App() {
         setTasks([...tasks])
     }
 
+    const deleteCompleteTask = (): void => {
+        setTasks(tasks.filter((task) => !task.isChecked))
+    }
+
     const toggleChecked = (index: number, checked: boolean): void => {
         tasks[index].isChecked = checked
 
@@ -50,6 +54,7 @@ function App() {
                 toggleChecked={toggleChecked}
                 onSubmitEdit={editTask}
                 clickDelete={deleteTask}
+                deleteCompleteTask={deleteCompleteTask}
             />
         </div>
     )

@@ -15,6 +15,10 @@ const TaskList = (props: TaskListType) => {
         props.clickDelete(index)
     }
 
+    const deleteCompleteTask = (): void => {
+        props.deleteCompleteTask()
+    }
+
     if (props.list.length === 0) {
         return (
             <div className={styles.nodata}>
@@ -27,7 +31,7 @@ const TaskList = (props: TaskListType) => {
         <div className={styles.list}>
             {props.list.map((task: TaskType, index: number) => {
                 return (
-                    <div key={task.id} className="column is-3">
+                    <div key={task.id}>
                         <Task
                             id={task.id}
                             index={index}
@@ -40,6 +44,11 @@ const TaskList = (props: TaskListType) => {
                     </div>
                 )
             })}
+            <div className={styles.deleteArea}>
+                <button type="button" onClick={deleteCompleteTask}>
+                    処理済みのタスクを削除
+                </button>
+            </div>
         </div>
     )
 }

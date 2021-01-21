@@ -13,4 +13,5 @@ export interface TaskListType {
     toggleChecked: Function
     onSubmitEdit: Function
     clickDelete: Function
+    deleteCompleteTask: Function
 }
