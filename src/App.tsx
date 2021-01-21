@@ -9,41 +9,56 @@ interface TaskType {
 }
 
 function App() {
-    const [id, setId] = useState<number>(0)
-    const [tasks, setTasks] = useState<TaskType[]>([])
+    const savedId = localStorage.getItem('reactTodoAppId')
+        ? Number(localStorage.getItem('reactTodoAppId'))
+        : 0
+    const tempSavedTasks = localStorage.getItem('reactTodoAppTasks')
+    const savedTasks = tempSavedTasks ? JSON.parse(tempSavedTasks) : []
+    const [id, setId] = useState<number>(savedId)
+    const [tasks, setTasks] = useState<TaskType[]>(savedTasks)
+
+    const saveTasks = (tasks: TaskType[]): void => {
+        setTasks([...tasks])
+        localStorage.setItem('reactTodoAppTasks', JSON.stringify(tasks))
+    }
 
     const crateTask = (label: string): void => {
-        setId(id + 1)
-
         const task: TaskType = {
             id: id,
             label: label,
             isChecked: false,
         }
 
-        setTasks([...tasks, task])
+        const margedTasks = [...tasks, task]
+        saveTasks(margedTasks)
+
+        const newId = id + 1
+        setId(newId)
+        localStorage.setItem('reactTodoAppId', String(newId))
     }
 
     const editTask = (index: number, text: string): void => {
         tasks[index].label = text
 
-        setTasks([...tasks])
+        saveTasks(tasks)
     }
 
     const deleteTask = (index: number): void => {
         tasks.splice(index, 1)
 
-        setTasks([...tasks])
+        saveTasks(tasks)
     }
 
     const deleteCompleteTask = (): void => {
-        setTasks(tasks.filter((task) => !task.isChecked))
+        const filterdTasks = tasks.filter((task) => !task.isChecked)
+
+        saveTasks(filterdTasks)
     }
 
     const toggleChecked = (index: number, checked: boolean): void => {
         tasks[index].isChecked = checked
 
-        setTasks([...tasks])
+        saveTasks(tasks)
     }
 
     return (
